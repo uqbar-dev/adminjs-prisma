@@ -1,5 +1,5 @@
 /**
- * @module @adminjs/prisma
+ * @module @uqbar-dev/prisma
  * @subcategory Adapters
  * @section modules
  *
@@ -10,9 +10,9 @@
  * ### Installation
  *
  * ```bash
- * $ yarn add @adminjs/prisma
+ * $ yarn add @uqbar-dev/prisma
  * or
- * $ npm install @adminjs/prisma
+ * $ npm install @uqbar-dev/prisma
  * ```
  *
  * ## Usage
@@ -20,7 +20,7 @@
  * The plugin can be registered using standard `AdminJS.registerAdapter` method.
  *
  * ```typescript
- * import { Database, Resource } from '@adminjs/prisma'
+ * import { Database, Resource } from '@uqbar-dev/prisma'
  * import AdminJS from 'adminjs'
  *
  * AdminJS.registerAdapter({ Database, Resource })
@@ -33,8 +33,8 @@
  * ```typescript
  * import express from 'express'
  * import AdminJS from 'adminjs'
- * import AdminJSExpress from '@adminjs/express'
- * import { Database, Resource } from '@adminjs/prisma'
+ * import AdminJSExpress from '@uqbar-dev/express'
+ * import { Database, Resource } from '@uqbar-dev/prisma'
  * import { PrismaClient } from '@prisma/client'
  * import { DMMFClass } from '@prisma/client/runtime'
  *
@@ -88,7 +88,7 @@
 /**
  * Implementation of {@link BaseDatabase} for Prisma Adapter
  *
- * @memberof module:@adminjs/prisma
+ * @memberof module:@uqbar-dev/prisma
  * @type {typeof BaseDatabase}
  * @static
  */
@@ -97,16 +97,17 @@ import { Database } from './Database.js';
 /**
  * Implementation of {@link BaseResource} for Prisma Adapter
  *
- * @memberof module:@adminjs/prisma
+ * @memberof module:@uqbar-dev/prisma
  * @type {typeof BaseResource}
  * @static
  */
 import { Resource } from './Resource.js';
 
-export { Resource } from './Resource.js';
 export { Database } from './Database.js';
-export { convertParam, convertFilter } from './utils/converters.js';
-export { getModelByName } from './utils/get-model-by-name.js';
-export { getEnums } from './utils/get-enums.js';
+export { Property } from './Property.js';
+export { Resource } from './Resource.js';
 export type { Enums, ModelManager } from './types.js';
+export { convertFilter, convertParam } from './utils/converters.js';
+export { getEnums } from './utils/get-enums.js';
+export { getModelByName } from './utils/get-model-by-name.js';
 export default { Database, Resource };

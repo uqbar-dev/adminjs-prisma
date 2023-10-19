@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-param-reassign */
-import { BaseResource, Filter, BaseRecord, flat } from 'adminjs';
 import { PrismaClient } from '@prisma/client';
 import { DMMF } from '@prisma/client/runtime/library.js';
+import { BaseRecord, BaseResource, Filter, flat } from 'adminjs';
 
 import { Property } from './Property.js';
-import { lowerCase } from './utils/helpers.js';
-import { ModelManager, Enums } from './types.js';
+import { Enums, ModelManager } from './types.js';
 import { convertFilter, convertParam } from './utils/converters.js';
 import { getEnums } from './utils/get-enums.js';
+import { lowerCase } from './utils/helpers.js';
 
 export class Resource extends BaseResource {
   private client: PrismaClient;
 
   private model: DMMF.Model;
 
-  private enums: Enums;
+  public enums: Enums;
 
   private manager: ModelManager;
 
@@ -149,7 +149,7 @@ export class Resource extends BaseResource {
     return !!model?.name && !!model?.fields.length && !!client?.[lowerCase(model.name)];
   }
 
-  private prepareProperties(): { [propertyPath: string]: Property } {
+  protected prepareProperties(): { [propertyPath: string]: Property } {
     const { fields = [] } = this.model;
 
     return fields.reduce((memo, field) => {
