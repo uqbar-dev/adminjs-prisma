@@ -1,5 +1,5 @@
 {
-  "name": "@uqbar-dev/prisma",
+  "name": "@adminjs/prisma",
   "version": "5.0.1",
   "description": "Prisma adapter for AdminJS",
   "keywords": [
@@ -40,13 +40,12 @@
   "author": "Rafał Dzięgielewski <rafal.dzieg@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "5.4.1",
     "adminjs": "^7.0.0"
   },
   "prisma": {
     "schema": "spec/prisma/schema.prisma"
   },
-  "optionalDependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
